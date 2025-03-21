@@ -441,7 +441,7 @@ app.post('/sendfile',  async(req, res) => {
 
 let mailOptions = {
     from:"geral@exportech.com.pt",
-    to:['kiossocamuegi@gmail.com', Data.email],
+    to:['geral@exportech.com.pt', Data.email],
     subject: 'Exportech - Formulário de devolução de equipamentos ('+ Data.company +')',
     text: 'formulario anexado a  mensagem.',
     attachments: [
