@@ -23,6 +23,10 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+app.get('/', async (req, res) => {
+  res.status(200).json("Hello world (?_?) !"); 
+})
+
 // Route: RMA Form Submission
 app.post("/sendfile", async (req, res) => {
   try {
