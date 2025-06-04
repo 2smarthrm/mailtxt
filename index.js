@@ -66,7 +66,7 @@ app.post("/sendfile", async (req, res) => {
 
     const mailOptions = {
       from: email,
-      to: "kiosso.silva@exportech.com.pt",
+      to: "geral@exportech.com.pt",
       subject: `RMA Form Submission (${name} - ${company})`,
       html: htmlContent,
     };
