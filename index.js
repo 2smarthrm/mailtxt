@@ -91,9 +91,8 @@ app.post("/sendemailaddressmessagetocompany", async (req, res) => {
 
     const mailOptions = {
       from: email,
-      to: "paulo.ferreira@exportech.com.pt",
-      subject: `Solicitação de orçamento 2smart (${name} - da empresa ${company})`,
-      cc:"andreia.perdigao@2smart.pt",
+      to: ["andreia.perdigao@2smart.pt", "paulo.ferreira@exportech.com.pt"],
+      subject: `Solicitação de orçamento 2smart (${name} - da empresa ${company})`, 
       html: `
       <html>
       <head>
