@@ -8,7 +8,12 @@ const PORT = 5000;
 // Middleware
 app.use(express.json());
 app.use(cors({
-  origin: ["https://2smart.pt", "https://store.exportech.com.pt", "http://127.0.0.1:5500"]
+  origin: ["https://2smart.pt",
+           "https://2smartmenudark.vercel.app",
+           "https://2smartmenulight.vercel.app",
+           "https://store.exportech.com.pt",
+           "http://127.0.0.1:5500"
+          ]
 })); // Allow requests from both domains
 
 // Email transporter (Keep credentials as requested)
