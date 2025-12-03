@@ -215,7 +215,7 @@ app.post("/report-2smart-error", async (req, res) => {
     const mailOptions = {
       from: email,
       // Altera este(s) email(s) para o(s) correto(s) da tua equipa de suporte
-      to: ["pedro.goncalves@exportech.com.pt"], 
+      to: ["helpdesk@2smart.pt"], 
       subject: `Reporte de erro 2Smart HR (${name})`,
       html: htmlContent,
     };
