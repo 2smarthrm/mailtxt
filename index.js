@@ -1,4 +1,4 @@
-  const express = require("express");
+const express = require("express");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
 
@@ -169,6 +169,76 @@ app.post("/sendemailaddressmessagetocompany", async (req, res) => {
     res.status(500).json({ success: false, error: "Failed to send emails." });
   }
 });
+
+ 
+app.post("/report-2smart-error", async (req, res) => {
+  try {
+    const { name, email, description } = req.body;
+
+    // Validação simples
+    if (!name || !email || !description) {
+      return res
+        .status(400)
+        .json({ success: false, error: "Os campos nome, email e descrição do erro são obrigatórios!" });
+    }
+
+    const htmlContent = `
+    <html>
+      <head>
+        <style>
+          body { font-family: 'Montserrat', sans-serif; margin: 20px; }
+          h1 { font-size: 20px; font-weight: 700; color: #0074fe; margin-bottom: 10px; }
+          p { font-size: 14px; line-height: 1.6; }
+          .box { max-width: 800px; padding: 20px; border: 1px solid #eaeaea; }
+          .row { margin-bottom: 8px; }
+          .label { font-weight: 600; }
+        </style>
+      </head>
+      <body>
+        <div class="box">
+          <h1>Novo reporte de erro – 2Smart HR</h1>
+          <div class="row">
+            <span class="label">Nome:</span> ${name}
+          </div>
+          <div class="row">
+            <span class="label">Email:</span> ${email}
+          </div>
+          <div class="row">
+            <span class="label">Descrição do erro:</span>
+            <p>${description}</p>
+          </div>
+        </div>
+      </body>
+    </html>
+    `;
+
+    const mailOptions = {
+      from: email,
+      // Altera este(s) email(s) para o(s) correto(s) da tua equipa de suporte
+      to: ["2smarthrm@gmail.com"], 
+      subject: `Reporte de erro 2Smart HR (${name})`,
+      html: htmlContent,
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    return res.json({
+      success: true,
+      message: "Reporte de erro enviado com sucesso! Obrigado pelo feedback.",
+    });
+  } catch (error) {
+    console.error("Error sending error report email:", error);
+    return res
+      .status(500)
+      .json({ success: false, error: "Falha ao enviar o reporte de erro." });
+  }
+});
+
+
+
+
+
+
 
 // Start Server
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
