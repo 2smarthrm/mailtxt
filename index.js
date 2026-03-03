@@ -93,7 +93,7 @@ app.post("/sendemailaddressmessagetocompany", async (req, res) => {
   try {
     const { nif, name, company, sector, email, phone, employeesnumber, message } = req.body;
 
-    if (!nif || !name || !company || !sector || !email || !phone || !employeesnumber || !message) {
+    if (!name || !company || !sector || !phone || !employeesnumber || !message) {
       return res.status(400).json({ success: false, error: "All fields are required!" });
     }
 
@@ -123,9 +123,7 @@ app.post("/sendemailaddressmessagetocompany", async (req, res) => {
                   <tr><td><strong>Empresa:</strong></td><td>${company}</td></tr>
                   <tr><td><strong>Email:</strong></td><td>${email}</td></tr>
                   <tr><td><strong>Telefone:</strong></td><td>${phone}</td></tr>
-                  <tr><td><strong>Número de colaboradores:</strong></td><td>${employeesnumber}</td></tr>
-                  <tr><td><strong>NIF:</strong></td><td>${nif}</td></tr>
-                  <tr><td><strong>Setor:</strong></td><td>${sector}</td></tr>
+                  <tr><td><strong>Número de colaboradores:</strong></td><td>${employeesnumber}</td></tr> 
               </table> 
           </div>
       </body>
