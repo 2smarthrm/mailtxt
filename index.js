@@ -41,7 +41,7 @@ app.post("/sendfile", async (req, res) => {
   try {
     const { nif, name, company, sector, email, phone, employeesnumber, message } = req.body;
 
-    if (!nif || !name || !company || !sector || !email || !phone || !employeesnumber || !message) {
+    if (!nif || !name || !company  || !email || !phone || !employeesnumber  ) {
       return res.status(400).json({ success: false, error: "All fields are required!" });
     }
 
