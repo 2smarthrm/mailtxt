@@ -15,7 +15,8 @@ app.use(cors({
            "https://2smartmenulight.vercel.app",
            "https://store.exportech.com.pt",
            "https://try-2smart.vercel.app",
-           "http://127.0.0.1:5500"
+           "http://127.0.0.1:5500",
+           "http://127.0.0.1:5500/site"
           ]
 })); // Allow requests from both domains
 
